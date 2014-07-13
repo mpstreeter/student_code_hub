@@ -3,13 +3,13 @@
   <%= simple_form_for @project, :html => {:multipart => true} do |f| %>
     <%= f.error_notification %>
 
-    <%= f.input :title, :autofocus => true %>
+    <%= f.input :title, :autofocus => true, :input_html => {:style=> 'width: 300px'} %>
 
-    <%= f.input :description, :input_html => { 'rows' => 5, 'cols' => 90 } %>
+    <%= f.input :language, :collection => ['Java', 'Python', 'C/C++/C#', 'Objective-C', 'Javascript', 'Processing', 'HTML', 'CSS', 'Alice', 'Scratch', 'Ruby (on Rails)', 'Swift', 'Other'], :input_html => {:style=> 'width: 310px'}  %>
 
-    <%= f.input :language, :collection => ['Java', 'Python', 'C/C++/C#', 'Objective-C', 'Javascript', 'Processing', 'HTML', 'CSS', 'Alice', 'Scratch', 'Ruby (on Rails)', 'Swift', 'Other'], :input_html => {:style=> 'width: 200px'}  %>
+    <%= f.input :description, :input_html => {:style=> 'width: 600px; height: 50px;'} %>
 
-    <%= f.input :content, label: 'Code' %>
+    <%= f.input :content, label: 'Code', :input_html => {:style=> 'width: 600px'} %>
 
     <%= f.file_field :picture %>
 
