@@ -1,0 +1,27 @@
+<div class="span9">
+
+  <%= simple_form_for @project, :html => {:multipart => true} do |f| %>
+    <%= f.error_notification %>
+
+    <%= f.input :title, :autofocus => true %>
+
+    <%= f.input :description, :input_html => { 'rows' => 5, 'cols' => 90 } %>
+
+    <%= f.input :language, :collection => ['Java', 'Python', 'C/C++/C#', 'Objective-C', 'Javascript', 'Processing', 'HTML', 'CSS', 'Alice', 'Scratch', 'Ruby (on Rails)', 'Swift', 'Other'], :input_html => {:style=> 'width: 200px'}  %>
+
+    <%= f.input :content, label: 'Code' %>
+
+    <%= f.file_field :picture %>
+
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  projects_path, :class => 'btn' %>
+    </div>
+
+    <br/>
+  <% end %>
+
+</div>
