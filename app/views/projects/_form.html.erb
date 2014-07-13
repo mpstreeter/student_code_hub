@@ -9,9 +9,9 @@
 
     <%= f.input :description, :input_html => {:style=> 'width: 600px; height: 50px;'} %>
 
-    <%= f.input :content, label: 'Code', :input_html => {:style=> 'width: 600px'} %>
+    Picture: &nbsp;&nbsp; <%= f.file_field :picture %> <br/><br/>
 
-    <%= f.file_field :picture %>
+    <%= f.input :content, label: 'Code', :input_html => {:style=> 'width: 600px'} %>
 
     <%= f.hidden_field :user_id, :value => current_user.id %>
     
