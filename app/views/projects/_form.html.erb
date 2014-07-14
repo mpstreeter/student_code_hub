@@ -3,15 +3,15 @@
   <%= simple_form_for @project, :html => {:multipart => true} do |f| %>
     <%= f.error_notification %>
 
-    <%= f.input :title, :autofocus => true, :input_html => {:style=> 'width: 300px'} %>
+    <%= f.input :title, :autofocus => true, required: true, :input_html => {:style=> 'width: 300px'} %>
 
-    <%= f.input :language, :collection => ['Java', 'Python', 'C/C++/C#', 'Objective-C', 'Javascript', 'Processing', 'HTML', 'CSS', 'Alice', 'Scratch', 'Ruby (on Rails)', 'Swift', 'Other'], :input_html => {:style=> 'width: 310px'}  %>
+    <%= f.input :language, required: true, :collection => ['Java', 'Python', 'C/C++/C#', 'Objective-C', 'Javascript', 'Processing', 'HTML', 'CSS', 'Alice', 'Scratch', 'Ruby (on Rails)', 'Swift', 'Other'], :input_html => {:style=> 'width: 310px'}  %>
 
-    <%= f.input :description, :input_html => {:style=> 'width: 600px; height: 50px;'} %>
+    <%= f.input :description, required: true, :input_html => {:style=> 'width: 600px; height: 50px;'} %>
 
-    Picture: &nbsp;&nbsp; <%= f.file_field :picture %> <br/><br/>
+    Picture: &nbsp;&nbsp; <%= f.file_field :picture, required: true %> <br/><br/>
 
-    <%= f.input :content, label: 'Code', :input_html => {:style=> 'width: 600px'} %>
+    <%= f.input :content, required: true, label: 'Code', :input_html => {:style=> 'width: 600px'} %>
 
     <%= f.hidden_field :user_id, :value => current_user.id %>
     
