@@ -2,24 +2,13 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th class="span2"><%= model_class.human_attribute_name(:user_id) %></th>
-      <th class="span2"><%= model_class.human_attribute_name(:title) %></th>
-      <th class="span2"><%= model_class.human_attribute_name(:language) %></th>
-      <th class="span8"><%= model_class.human_attribute_name(:description) %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.user.full_name %></td>
-        <td><%= link_to project.title, project_path(project) %></td>
-        <td><%= project.language %></td>
-        <td><%= project.description %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
+<% @projects.each do |project| %>
+  <div class="well">
+    <%= image_tag(project.picture_url, :width => 150, :style => "float:left; padding:0px 20px 0px 0px") if project.picture.present? %>
+    <h4><%= link_to project.title, project_path(project) %></h4>
+    <p>By: <%= link_to project.user.full_name, "/" + project.user.username %></p>
+    <p>Language: <%= project.language %></p>
+    <p><%= project.description %></p>
+  </div>
+<% end %>
