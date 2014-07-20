@@ -26,6 +26,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   # GET /projects/new.json
   def new
+    @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: 201, acl: :public_read)
     @project = Project.new
 
     respond_to do |format|
@@ -82,4 +83,5 @@ class ProjectsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 end
