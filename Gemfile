@@ -14,6 +14,8 @@ group :production do
 end
 
 gem 'carrierwave'
+gem 'paperclip'
+gem 'aws-sdk'
 gem 'simple_form'
 gem 'devise'
 

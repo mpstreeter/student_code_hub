@@ -17,7 +17,8 @@
 
   <div>
   <!-- project pic -->
-  <%= image_tag(@project.picture_url, :width => 600) if @project.picture.present? %>
+  <%= image_tag(@project.avatar.url(:medium)) if @project.avatar.present? %>
+
   </div>
 
 </div>
