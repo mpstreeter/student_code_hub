@@ -1,25 +1,29 @@
 <%- model_class = Project -%>
-<div class="page-header">
+<div class="page-header row">
+
+  <div class="span7">
   <h1><%= @project.title %></h1>
   <p> <%= @project.description %> </p>
   <p> Language: <%= @project.language %> </p>
   <p> By: <%= link_to @project.user.full_name, "/" + @project.user.username %> </p>
+  </div>
+
+  <div class="span3">
+  <!-- project pic -->
+  <%= image_tag(@project.picture) if @project.picture.present? %>
+
+  </div>
 </div>
 
 <div class="row">
 
-  <div class="cr-code selectable span6">
+  <div class="cr-code selectable">
   <!-- project code -->
     <pre><code>
     <%= @project.content %>
     </code></pre>
   </div>
 
-  <div>
-  <!-- project pic -->
-  <%= image_tag(@project.picture) if @project.picture.present? %>
-
-  </div>
 
 </div>
 <!-- project actions: Edit | Delete -->
