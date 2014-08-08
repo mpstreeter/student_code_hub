@@ -10,7 +10,7 @@
 
   <div class="span3">
   <!-- project pic -->
-  <%= image_tag(@project.picture) if @project.picture.present? %>
+  <%= image_tag(@project.avatar.url(:medium)) if @project.avatar.present? %>
 
   </div>
 </div>
