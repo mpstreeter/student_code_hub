@@ -7,7 +7,7 @@
 
 	<% @projects.each do |project| %>
 	  <div class="well">
-	    <%= image_tag(project.avatar.url(:thumb), :style => "float:left; padding:0px 20px 0px 0px") if project.avatar.present? %>
+	    <%= image_tag(project.photo_url, :style => "float:left; padding:0px 20px 0px 0px; width: 120px; height: 120px;") if project.photo_url.present? %>
 	    <h4><%= link_to project.title, project_path(project) %></h4>
 	    <p>Language: <%= project.language %></p>
 	    <p><%= project.description %></p>
